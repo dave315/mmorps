@@ -1,3 +1,18 @@
 <h1> MMORPS </h1>
 
-<!-- html form -->
+<p> <%= session[:player_score] %>: <%= session[:computer_score] %></p>
+<p> <%= game_summary %></p>
+<p> <%= game_winner %></p>
+
+
+<form class="" action="/mmorps" method="post">
+  <label for="player_input">Rock</label>
+  <input type="submit" name="player_choice" value="Rock">
+
+  <label for="player_input">Paper</label>
+  <input type="submit" name="player_choice" value="Paper">
+
+  <label for="player_input">Scissors</label>
+  <input type="submit" name="player_choice" value="Scissors">
+
+</form>
