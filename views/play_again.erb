@@ -1,0 +1,9 @@
+<h1> MMORPS </h1>
+
+<p> <%= session[:player_score] %>: <%= session[:computer_score] %></p>
+<p> <%= game_summary %></p>
+
+<form class="" action="/reset" method="post">
+  <label for="reset">Play Again</label>
+  <input type="submit" name="reset">
+</form>
