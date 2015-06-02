@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Foundation is da bomb.</title>
+  <title>MMORPS</title>
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/foundation.min.css">
   <link rel="stylesheet" href="/css/style.css">
@@ -9,27 +9,31 @@
 </head>
 
   <body>
+      <div class="large-12 columns">
+        <div class="banner pull">
 
-    <% flash.keys.each do |type| %>
-      <div data-alert class="flash <%= type %> alert-box radius">
-        <%= flash[type] %>
-        <a href="#" class="close">&times;</a>
-      </div>
-    <% end %>
+          <% flash.keys.each do |type| %>
+            <div data-alert class="flash <%= type %> alert-box radius">
+              <%= flash[type] %>
+              <a href="#" class="close">&times;</a>
+            </div>
+          <% end %>
 
-    <div class="container">
-      <div class="row">
-        <div class="column">
-          <%= yield %>
+          <div class="container">
+            <div class="row">
+              <div class="column">
+                <%= yield %>
+              </div>
+            </div>
+          </div>
+
+          <script src="/js/vendor/jquery.js"></script>
+          <script src="/js/foundation.min.js"></script>
+
+          <script>
+            $(document).foundation();
+          </script>
         </div>
       </div>
-    </div>
-
-    <script src="/js/vendor/jquery.js"></script>
-    <script src="/js/foundation.min.js"></script>
-
-    <script>
-      $(document).foundation();
-    </script>
   </body>
 </html>

@@ -10,17 +10,19 @@
     <td><%= session[:computer_score] %></td>
   </tr>
 </table>
-<p> <%= game_summary %></p>
-<p> <%= game_winner %></p>
+<h4 class="cpu"> CPU THREW <%=session[:cpu_output]%></h4>
+<h4 class="player"> YOU THREW <%=session[:player_choice]%></h4>
+<h4>Round Goes To: <%=session[:winner]%></h4>
+<h4> <%= game_winner %></h4>
 
 
 <form class="" action="/mmorps" method="post">
-  <label for="player_input">Rock</label>
-  <input type="submit" name="player_choice" value="Rock">
+  <label for="player_input"></label>
+  <input class = "button round" type="submit" name="player_choice" value="Rock">
 
-  <label for="player_input">Paper</label>
-  <input type="submit" name="player_choice" value="Paper">
+  <label for="player_input"></label>
+  <input class = "button round" type="submit" name="player_choice" value="Paper">
 
-  <label for="player_input">Scissors</label>
-  <input type="submit" name="player_choice" value="Scissors">
+  <label for="player_input"></label>
+  <input class = "button round" type="submit" name="player_choice" value="Scissors">
 </form>

@@ -28,10 +28,12 @@ end
 def game_winner
   if session[:player_score] == 2
     session[:game_winner] = "Player"
+    flash[:success] = "CONGRATULATIONS YOU WON! Go ahead, play again!"
     redirect "/play_again"
     return "Game over - Player Wins"
   elsif session[:computer_score] == 2
     session[:game_winner] = "Computer"
+    flash[:warning] = "WOMP WOMP, You lost to the Computer!"
     redirect "/play_again"
     return "Game over - Computer wins"
   else
@@ -44,6 +46,7 @@ def reset
   session[:computer_score] = 0
   session[:winner] = nil
 end
+
 
 get "/" do
   redirect "/mmorps"
@@ -59,17 +62,17 @@ get "/mmorps" do
   erb :index, locals: { game_summary: game_summary }
 end
 
-get "/play_again" do
-  game_summary = "#{session[:game_winner]} WINS!!!!! CPU threw: #{session[:cpu_output]} - Player threw: #{session[:player_choice]} --> \n Round winner: #{session[:winner]}"
-  erb :play_again, locals: { game_summary: game_summary }
-end
-
 post "/mmorps" do
   session[:player_choice] = params[:player_choice]
 
   round_winner(session[:player_choice], cpu_output)
 
   redirect "/mmorps"
+end
+
+get "/play_again" do
+  game_summary = "#{session[:game_winner]} WINS!!!!! CPU threw: #{session[:cpu_output]} - Player threw: #{session[:player_choice]} --> \n Round winner: #{session[:winner]}"
+  erb :play_again, locals: { game_summary: game_summary }
 end
 
 post '/reset' do
